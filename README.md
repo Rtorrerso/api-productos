@@ -1,98 +1,513 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+**Ejercicio práctico Unidad 3**
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+**Session 1**
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+**Paso 0 --- Requisitos rápidos**
 
-## Description
+1.  **Node.js** 18 o superior
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+2.  **npm** (v9+).
 
-## Project setup
+3.  **VS Code** (recomendado).
 
-```bash
-$ npm install
-```
+4.  En Windows, si nest "no se reconoce", agrega a tu PATH:\
+    C:\\Users\\\<TU_USUARIO\>\\AppData\\Roaming\\npm
 
-## Compile and run the project
+Comprueba versiones:
 
-```bash
-# development
-$ npm run start
+node -v
 
-# watch mode
-$ npm run start:dev
+npm -v
 
-# production mode
-$ npm run start:prod
-```
+**Paso 1 --- Instalar el CLI de Nest**
 
-## Run tests
+npm i -g \@nestjs/cli
 
-```bash
-# unit tests
-$ npm run test
+-   **¿Qué hace?** Instala globalmente la herramienta nest para
+    scaffolding (crear proyectos, módulos, controladores, servicios) y
+    utilidades de desarrollo.
 
-# e2e tests
-$ npm run test:e2e
+Verifica:
 
-# test coverage
-$ npm run test:cov
-```
+nest \--version
 
-## Deployment
+**Paso 2 --- Crear un proyecto base**
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+nest new api-productos
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+-   **¿Qué hace?** Crea una carpeta api-productos con estructura lista
+    (TypeScript, tsconfig, scripts npm, etc.).
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+-   Te preguntará el **gestor de paquetes** (npm, pnpm o yarn). Puedes
+    elegir **npm** sin problema.
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Estructura mínima que verás:
 
-## Resources
+src/
 
-Check out a few resources that may come in handy when working with NestJS:
+app.controller.ts
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+app.module.ts
 
-## Support
+main.ts
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+**Paso 3 --- Entrar al proyecto y correr en modo dev**
 
-## Stay in touch
+cd api-productos
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+npm run start:dev
 
-## License
+-   **¿Qué hace?** Levanta el servidor en modo "watch" (recarga al
+    guardar).
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+-   Abre:
+    [**[http://localhost:3000]{.underline}**](http://localhost:3000) →
+    verás "Hello World!".
+
+Si el puerto 3000 está ocupado, puedes cambiar el puerto en main.ts:
+
+await app.listen(4000);
+
+**Siguiente meta: construir tu API de Productos (CRUD) 📦**
+
+Haremos lo esencial: **módulo, servicio, controlador, DTOs con
+validación y Swagger**. Todo en memoria (sin base de datos) para
+aprender los fundamentos.
+
+**4.1 Generar recurso (opción rápida con schematics)**
+
+Si quieres hacerlo "automágico":
+
+nest g resource products \--no-spec
+
+-   Elige: **REST API**, **CRUD**, **Yes** a Swagger si lo pregunta.\
+    Esto te crea módulo, servicio, controlador y DTOs.\
+    **Pasa al Paso 5 (Validación global) y 6 (Swagger)** para afinar.
+
+**4.2 Hacerlo manual (opción didáctica)**
+
+Si prefieres entender cada pieza, usa:
+
+nest g module products
+
+nest g controller products \--no-spec
+
+nest g service products \--no-spec
+
+Crea src/products/entities/product.entity.ts:
+
+export class Product {
+
+id: number;
+
+name: string;
+
+price: number;
+
+description?: string;
+
+}
+
+Crea src/products/dto/create-product.dto.ts:
+
+import { IsString, IsNumber, IsPositive, IsOptional } from
+\'class-validator\';
+
+import { ApiProperty } from \'@nestjs/swagger\';
+
+export class CreateProductDto {
+
+\@ApiProperty({ example: \'Café latte\' })
+
+\@IsString()
+
+name: string;
+
+\@ApiProperty({ example: 3.5 })
+
+\@IsNumber()
+
+\@IsPositive()
+
+price: number;
+
+\@ApiProperty({ example: \'Bebida caliente\', required: false })
+
+\@IsOptional()
+
+\@IsString()
+
+description?: string;
+
+}
+
+Crea src/products/dto/update-product.dto.ts:
+
+import { PartialType } from \'@nestjs/swagger\';
+
+import { CreateProductDto } from \'./create-product.dto\';
+
+export class UpdateProductDto extends PartialType(CreateProductDto) {}
+
+Edita src/products/products.service.ts:
+
+import { Injectable, NotFoundException } from \'@nestjs/common\';
+
+import { Product } from \'./entities/product.entity\';
+
+import { CreateProductDto } from \'./dto/create-product.dto\';
+
+import { UpdateProductDto } from \'./dto/update-product.dto\';
+
+\@Injectable()
+
+export class ProductsService {
+
+private products: Product\[\] = \[\];
+
+private idSeq = 1;
+
+create(dto: CreateProductDto): Product {
+
+const product: Product = { id: this.idSeq++, \...dto };
+
+this.products.push(product);
+
+return product;
+
+}
+
+findAll(): Product\[\] {
+
+return this.products;
+
+}
+
+findOne(id: number): Product {
+
+const prod = this.products.find(p =\> p.id === id);
+
+if (!prod) throw new NotFoundException(\`Producto \${id} no
+encontrado\`);
+
+return prod;
+
+}
+
+update(id: number, dto: UpdateProductDto): Product {
+
+const prod = this.findOne(id);
+
+const updated = { \...prod, \...dto };
+
+this.products = this.products.map(p =\> (p.id === id ? updated : p));
+
+return updated;
+
+}
+
+remove(id: number): void {
+
+this.findOne(id); // valida existencia
+
+this.products = this.products.filter(p =\> p.id !== id);
+
+}
+
+}
+
+Edita src/products/products.controller.ts:
+
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe
+} from \'@nestjs/common\';
+
+import { ProductsService } from \'./products.service\';
+
+import { CreateProductDto } from \'./dto/create-product.dto\';
+
+import { UpdateProductDto } from \'./dto/update-product.dto\';
+
+import { ApiTags, ApiCreatedResponse, ApiOkResponse } from
+\'@nestjs/swagger\';
+
+\@ApiTags(\'products\')
+
+\@Controller(\'products\')
+
+export class ProductsController {
+
+constructor(private readonly productsService: ProductsService) {}
+
+\@Post()
+
+\@ApiCreatedResponse({ description: \'Producto creado\' })
+
+create(@Body() dto: CreateProductDto) {
+
+return this.productsService.create(dto);
+
+}
+
+\@Get()
+
+\@ApiOkResponse({ description: \'Lista de productos\' })
+
+findAll() {
+
+return this.productsService.findAll();
+
+}
+
+\@Get(\':id\')
+
+\@ApiOkResponse({ description: \'Detalle de producto\' })
+
+findOne(@Param(\'id\', ParseIntPipe) id: number) {
+
+return this.productsService.findOne(id);
+
+}
+
+\@Patch(\':id\')
+
+update(@Param(\'id\', ParseIntPipe) id: number, \@Body() dto:
+UpdateProductDto) {
+
+return this.productsService.update(id, dto);
+
+}
+
+\@Delete(\':id\')
+
+remove(@Param(\'id\', ParseIntPipe) id: number) {
+
+this.productsService.remove(id);
+
+return { message: \'Eliminado\' };
+
+}
+
+}
+
+Conecta el módulo en src/products/products.module.ts (Nest ya lo hace
+por ti si usaste generators). Asegúrate que ProductsModule esté
+importado en AppModule.
+
+**Paso 5 --- Activar validación global (muy importante)**
+
+Instala paquetes de validación:
+
+npm i class-validator class-transformer \@nestjs/swagger
+swagger-ui-express
+
+Edita src/main.ts para activar ValidationPipe global y transformación:
+
+import { ValidationPipe } from \'@nestjs/common\';
+
+import { NestFactory } from \'@nestjs/core\';
+
+import { AppModule } from \'./app.module\';
+
+async function bootstrap() {
+
+const app = await NestFactory.create(AppModule);
+
+app.useGlobalPipes(new ValidationPipe({
+
+whitelist: true, // quita campos extra no definidos en DTO
+
+forbidNonWhitelisted: true, // lanza error si envían campos no
+permitidos
+
+transform: true, // transforma tipos (string-\>number) si aplica
+
+transformOptions: { enableImplicitConversion: true },
+
+}));
+
+await app.listen(3000);
+
+}
+
+bootstrap();
+
+**Paso 6 --- Documentación Swagger**
+
+En src/main.ts, agrega Swagger:
+
+import { DocumentBuilder, SwaggerModule } from \'@nestjs/swagger\';
+
+// \... dentro de bootstrap, antes de listen:
+
+const config = new DocumentBuilder()
+
+.setTitle(\'API Productos\')
+
+.setDescription(\'CRUD de productos con NestJS\')
+
+.setVersion(\'1.0\')
+
+.build();
+
+const document = SwaggerModule.createDocument(app, config);
+
+SwaggerModule.setup(\'docs\', app, document);
+
+Ahora tendrás
+[**[http://localhost:3000/docs]{.underline}**](http://localhost:3000/docs)
+con la UI de Swagger.
+
+**Probar la API (rápido)**
+
+Con el servidor corriendo (npm run start:dev): abrimos otra terminal con
+ctrl-shift-ñ
+
+**Crear:**
+
+curl -X POST http://localhost:3000/products \\
+
+-H \"Content-Type: application/json\" \\
+
+-d \'{\"name\":\"Café latte\",\"price\":3.5,\"description\":\"Bebida
+caliente\"}\'
+
+**Listar:**
+
+curl http://localhost:3000/products
+
+**Detalle:**
+
+curl http://localhost:3000/products/1
+
+**Actualizar:**
+
+curl -X PATCH http://localhost:3000/products/1 \\
+
+-H \"Content-Type: application/json\" \\
+
+-d \'{\"price\":3.9}\'
+
+**Eliminar:**
+
+curl -X DELETE http://localhost:3000/products/1
+
+ejercicios prácticos
+
+1.  Ve a GET /products.
+
+2.  Haz clic en **Try it out** → **Execute**.
+
+3.  Verás la lista de productos en un arreglo JSON.
+
+Ejemplo de respuesta:
+
+\[
+
+{
+
+\"id\": 1,
+
+\"name\": \"Café latte\",
+
+\"price\": 3.5,
+
+\"description\": \"Bebida caliente\"
+
+},
+
+{
+
+\"id\": 2,
+
+\"name\": \"Muffin de arándanos\",
+
+\"price\": 2.2,
+
+\"description\": \"Recién horneado\"
+
+}
+
+\]
+
+**2. Consultar un producto por ID**
+
+En **Swagger**:
+
+1.  Ve a GET /products/{id}.
+
+2.  Pulsa **Try it out**.
+
+3.  En el campo **id**, escribe el número que quieres buscar (por
+    ejemplo, 1).
+
+4.  Pulsa **Execute**.
+
+Ejemplo de respuesta:
+
+{
+
+\"id\": 1,
+
+\"name\": \"Café latte\",
+
+\"price\": 3.5,
+
+\"description\": \"Bebida caliente\"
+
+}
+
+Si el ID no existe, verás:
+
+{
+
+\"statusCode\": 404,
+
+\"message\": \"Producto 99 no encontrado\",
+
+\"error\": \"Not Found\"
+
+}
+
+**3. Hacerlo desde la terminal**
+
+También puedes consultar usando curl:
+
+**Todos los productos**
+
+curl http://localhost:3000/products
+
+**Un producto específico**
+
+curl http://localhost:3000/products/1
+
+**4. Próximos pasos para mejorar tus consultas**
+
+Ahora mismo, findAll() en el servicio devuelve **todos los productos sin
+filtros**.\
+Podemos agregar **query parameters** para hacer la API más útil: esto
+iría en products.controller.ts (en entities)
+
+Ejemplo: filtrar por precio mínimo
+
+\@Get()
+
+findAll(@Query(\'minPrice\') minPrice?: number) {
+
+if (minPrice) {
+
+return this.productsService.findAll().filter(p =\> p.price \>=
+minPrice);
+
+}
+
+return this.productsService.findAll();
+
+}
+
+Ahora podrías hacer:
+
+http://localhost:3000/products?minPrice=3
+
+y solo ver los productos con precio mayor o igual a 3.
+
+**Entonces tu products.controller.ts quedaría**
